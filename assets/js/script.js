@@ -26,22 +26,21 @@ function displayQuestion (event) {
     /*Removes the selected country and dds the selected country to the array at a random location.*/ 
     countryButtons.shift();
     countryButtons.splice([Math.floor(Math.random()*countries.length)], 0, currentCountry);
-    console.log(countryButtons);
     /*Adds the answer button to the screen*/
     let buttonArea = document.createElement('div');
     for (choice in countryButtons) {
         let questionChoice = document.createElement('div');
-        questionChoice.innerHTML = `<button onclick = "answerQuestion()" id = "${countryButtons[choice]}" class = "answer-button">${countryButtons[choice]}</button>`;
+        questionChoice.innerHTML = `<button id = "${countryButtons[choice]}" onclick = "answerQuestion(${countryButtons[choice]})" class = "answer-button">${countryButtons[choice]}</button>`;
         buttonArea.appendChild(questionChoice);
     }
     showMap.appendChild(buttonArea);
 }
 
 /*Function to check answer*/
-function answerQuestion() {
-    let myAnswer = document.getElementsByClassName('answer-button').click;
+function answerQuestion(playerChoice) {
+    console.log(playerChoice);
     let myScore = document.getElementById('score');
-    myScore.innerHTML = `${playerChoice}"It worked!"`;
+    myScore.innerHTML = `<p>${playerChoice} "It worked!"</p>`;
 }
 
 
