@@ -14,7 +14,6 @@ function displayQuestion (event) {
     let countryButtons = [];
     /*adds the current Country to the button array*/
     countryButtons.push(currentCountry);
-    console.log(countryButtons);
     /*Generate three random countries, checks to see if it is the array, and if not adds it to the array*/
     while (countryButtons.length <= 3) {
         newCountry = countries[Math.floor(Math.random()*countries.length)];
@@ -23,10 +22,11 @@ function displayQuestion (event) {
         } else {
             countryButtons.push(newCountry);
         }
-        
     }
+    /*Removes the selected country and dds the selected country to the array at a random location.*/ 
+    countryButtons.shift();
+    countryButtons.splice([Math.floor(Math.random()*countries.length)], 0, currentCountry);
     console.log(countryButtons);
-    /*Adds the selected country to the array at a random location.*/ 
 
 }
 
