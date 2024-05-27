@@ -31,7 +31,7 @@ function displayQuestion (event) {
     let buttonArea = document.createElement('div');
     for (choice in countryButtons) {
         let questionChoice = document.createElement('div');
-        questionChoice.innerHTML = `<button>${choice}</button>`;
+        questionChoice.innerHTML = `<button>${countryButtons[choice]}</button>`;
         buttonArea.appendChild(questionChoice);
     }
     showMap.appendChild(buttonArea);
