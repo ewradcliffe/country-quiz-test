@@ -27,7 +27,14 @@ function displayQuestion (event) {
     countryButtons.shift();
     countryButtons.splice([Math.floor(Math.random()*countries.length)], 0, currentCountry);
     console.log(countryButtons);
-
+    /*Adds the answer button to the screen*/
+    let buttonArea = document.createElement('div');
+    for (choice in countryButtons) {
+        let questionChoice = document.createElement('div');
+        questionChoice.innerHTML = `<button>${choice}</button>`;
+        buttonArea.appendChild(questionChoice);
+    }
+    showMap.appendChild(buttonArea);
 }
 
 
