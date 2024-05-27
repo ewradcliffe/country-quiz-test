@@ -1,6 +1,7 @@
 /*List of countries part of the quiz*/
 let countries = ['austria', 'belgium', 'bulgaria', 'cyprus', 'denmark', 'france', 'germany', 'greece', 'greenland', 'hungary'];
 let currentCountry;
+let playerScore = 0;
 
 /*Function to diplay question*/
 function displayQuestion (event) {
@@ -41,11 +42,12 @@ function answerQuestion(playerChoice) {
     questionResult = document.getElementById('player-choice');
     if (playerChoice === currentCountry ) {
         questionResult.innerHTML = `You chose ${playerChoice} that's correct`;
+        ++playerScore;
     } else {
         questionResult.innerHTML = `You chose ${playerChoice} that's wrong`;
     }
     let myScore = document.getElementById('score');
-    myScore.innerHTML = `${playerChoice} "It worked!"`;
+    myScore.innerHTML = `Your score is ${playerScore}`;
 }
 
 
