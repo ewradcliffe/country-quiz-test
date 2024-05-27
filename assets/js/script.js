@@ -18,7 +18,11 @@ function displayQuestion (event) {
     /*Generate three random countries, checks to see if it is the array, and if not adds it to the array*/
     while (countryButtons.length <= 3) {
         newCountry = countries[Math.floor(Math.random()*countries.length)];
-        countryButtons.push(newCountry);
+        if (countryButtons.includes(newCountry)) {
+            continue
+        } else {
+            countryButtons.push(newCountry);
+        }
         
     }
     console.log(countryButtons);
