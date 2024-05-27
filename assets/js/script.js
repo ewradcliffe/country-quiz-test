@@ -30,7 +30,7 @@ function displayQuestion (event) {
     let buttonArea = document.createElement('div');
     for (choice in countryButtons) {
         let questionChoice = document.createElement('div');
-        questionChoice.innerHTML = `<button id = "${countryButtons[choice]}" onclick = "answerQuestion(${countryButtons[choice]})" class = "answer-button">${countryButtons[choice]}</button>`;
+        questionChoice.innerHTML = `<button id ="${countryButtons[choice]}" onclick = "answerQuestion(this.id)" class = "answer-button">${countryButtons[choice]}</button>`;
         buttonArea.appendChild(questionChoice);
     }
     showMap.appendChild(buttonArea);
@@ -40,7 +40,7 @@ function displayQuestion (event) {
 function answerQuestion(playerChoice) {
     console.log(playerChoice);
     let myScore = document.getElementById('score');
-    myScore.innerHTML = `<p>${playerChoice} "It worked!"</p>`;
+    myScore.innerHTML = `${playerChoice} "It worked!"`;
 }
 
 
