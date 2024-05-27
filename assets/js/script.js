@@ -1,11 +1,11 @@
 /*List of countries part of the quiz*/
 let countries = ['austria', 'belgium', 'bulgaria', 'cyprus', 'denmark', 'france', 'germany', 'greece', 'greenland', 'hungary'];
-
+let currentCountry;
 
 /*Function to diplay question*/
 function displayQuestion (event) {
     /*Randomly selects a country (random selector taken from https://www.geeksforgeeks.org/how-to-select-a-random-element-from-array-in-javascript/)*/
-    let  currentCountry = countries[Math.floor(Math.random()*countries.length)];
+    currentCountry = countries[Math.floor(Math.random()*countries.length)];
     /*Displays the Map Silhouette*/
     let showMap = document.getElementById('quiz-area');
     showMap.innerHTML = `<img src = "assets/images/${currentCountry}.png" alt = "Silhouette of country.">`;
@@ -38,7 +38,12 @@ function displayQuestion (event) {
 
 /*Function to check answer*/
 function answerQuestion(playerChoice) {
-    console.log(playerChoice);
+    questionResult = document.getElementById('player-choice');
+    if (playerChoice === currentCountry ) {
+        questionResult.innerHTML = `You chose ${playerChoice} that's correct`;
+    } else {
+        questionResult.innerHTML = `You chose ${playerChoice} that's wrong`;
+    }
     let myScore = document.getElementById('score');
     myScore.innerHTML = `${playerChoice} "It worked!"`;
 }
