@@ -31,10 +31,17 @@ function displayQuestion (event) {
     let buttonArea = document.createElement('div');
     for (choice in countryButtons) {
         let questionChoice = document.createElement('div');
-        questionChoice.innerHTML = `<button>${countryButtons[choice]}</button>`;
+        questionChoice.innerHTML = `<button onclick = "answerQuestion()" id = "${countryButtons[choice]}" class = "answer-button">${countryButtons[choice]}</button>`;
         buttonArea.appendChild(questionChoice);
     }
     showMap.appendChild(buttonArea);
+}
+
+/*Function to check answer*/
+function answerQuestion() {
+    let myAnswer = document.getElementsByClassName('answer-button').click;
+    let myScore = document.getElementById('score');
+    myScore.innerHTML = `${playerChoice}"It worked!"`;
 }
 
 
